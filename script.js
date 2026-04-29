@@ -93,7 +93,7 @@ async function sendMessage() {
     conversationHistory.push({ role: 'assistant', content: reply });
   } catch (err) {
     removeTyping();
-    appendMessage('bot', '⚠️ I encountered a technical issue. Please check your API key in script.js or try again shortly. If this persists, contact our agent directly at 0300-1234567.');
+    appendMessage('bot', '⚠️ I encountered a technical issue. Please check your API key in script.js or try again shortly. If this persists, contact our agent directly at 03214545753.');
     console.error('Claude API Error:', err);
   } finally {
     setLoading(false);
