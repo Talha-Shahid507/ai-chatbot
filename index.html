@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LuxeEstate AI — Premium Property Intelligence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- ========== ANIMATED BACKGROUND ========== -->
+  <div class="bg-layer">
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+    <div class="noise"></div>
+    <div class="grid-overlay"></div>
+  </div>
+
+  <!-- ========== SPLASH SCREEN ========== -->
+  <div class="splash" id="splash">
+    <div class="splash-inner">
+      <div class="splash-hex">⬡</div>
+      <div class="splash-brand">LuxeEstate <span>AI</span></div>
+      <div class="splash-bar"><div class="splash-fill"></div></div>
+      <p class="splash-sub">Initializing Property Intelligence...</p>
+    </div>
+  </div>
+
+  <!-- ========== MAIN APP ========== -->
+  <div class="app hidden" id="app">
+
+    <!-- LEFT SIDEBAR -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-hex">⬡</div>
+        <div class="brand-text">
+          <div class="brand-name">LuxeEstate</div>
+          <div class="brand-tag">AI ASSISTANT</div>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-item active"><span>💬</span><span>AI Chat</span></div>
+        <div class="nav-item"><span>🏙️</span><span>Properties</span></div>
+        <div class="nav-item"><span>📊</span><span>Market Data</span></div>
+        <div class="nav-item"><span>📍</span><span>Locations</span></div>
+        <div class="nav-item"><span>📞</span><span>Contact Agent</span></div>
+      </nav>
+
+      <div class="sidebar-stats">
+        <div class="stat-box">
+          <div class="stat-num">2,400+</div>
+          <div class="stat-lbl">Properties Listed</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">DHA · Bahria</div>
+          <div class="stat-lbl">Prime Locations</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">24 / 7</div>
+          <div class="stat-lbl">AI Support</div>
+        </div>
+      </div>
+
+      <div class="agent-card">
+        <div class="agent-avatar">TS</div>
+        <div class="agent-info">
+          <div class="agent-name">Talha Shahid</div>
+          <div class="agent-role">Senior Property Advisor</div>
+        </div>
+        <div class="agent-online"></div>
+      </div>
+    </aside>
+
+    <!-- CENTER CHAT PANEL -->
+    <main class="chat-panel">
+
+      <header class="topbar">
+        <div class="topbar-left">
+          <div class="ai-live">
+            <div class="live-ring"></div>
+            <div class="live-dot"></div>
+          </div>
+          <div>
+            <div class="topbar-title">Real Estate Intelligence</div>
+            <div class="topbar-sub">Claude AI · Powered · Always Online</div>
+          </div>
+        </div>
+        <div class="topbar-right">
+          <span class="live-badge">● LIVE</span>
+          <button class="clear-btn" onclick="clearChat()" title="Clear chat">✕</button>
+        </div>
+      </header>
+
+      <!-- Suggestion Chips -->
+      <div class="chips-row" id="chipsRow">
+        <div class="chip" onclick="chipSend(this)">DHA Lahore prices 2025</div>
+        <div class="chip" onclick="chipSend(this)">Best investment areas</div>
+        <div class="chip" onclick="chipSend(this)">Bahria Town plots</div>
+        <div class="chip" onclick="chipSend(this)">How to buy property?</div>
+        <div class="chip" onclick="chipSend(this)">Commercial vs Residential</div>
+      </div>
+
+      <!-- Chat Messages -->
+      <div class="chatbox" id="chatbox">
+        <div class="welcome-block">
+          <div class="welcome-icon">🏛️</div>
+          <h2 class="welcome-title">Welcome to LuxeEstate AI</h2>
+          <p class="welcome-desc">Pakistan's most advanced real estate intelligence platform. Ask me anything about properties, prices, locations, investments, or the buying process — I'm here 24/7.</p>
+        </div>
+      </div>
+
+      <!-- Input Area -->
+      <div class="input-zone">
+        <div class="input-bar">
+          <span class="input-star">✦</span>
+          <input id="userInput" placeholder="Ask about properties, prices, locations..." autocomplete="off"/>
+          <button class="send-btn" id="sendBtn" onclick="sendMessage()">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="22" y1="2" x2="11" y2="13"></line>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+            </svg>
+          </button>
+        </div>
+        <div class="input-hint">Powered by Claude Sonnet · AI-generated responses · Please verify with agent</div>
+      </div>
+    </main>
+
+    <!-- RIGHT PANEL -->
+    <aside class="right-panel">
+
+      <div class="rp-section">
+        <div class="rp-title">🔥 Hot Listings</div>
+        <div class="listing-card">
+          <div class="listing-emoji">🏠</div>
+          <div class="listing-info">
+            <div class="listing-name">DHA Phase 6 — 1 Kanal</div>
+            <div class="listing-price">PKR 7.5 Crore</div>
+            <div class="listing-tag">House</div>
+          </div>
+        </div>
+        <div class="listing-card">
+          <div class="listing-emoji">🏢</div>
+          <div class="listing-info">
+            <div class="listing-name">Bahria Town — 10 Marla</div>
+            <div class="listing-price">PKR 1.8 Crore</div>
+            <div class="listing-tag">Plot</div>
+          </div>
+        </div>
+        <div class="listing-card">
+          <div class="listing-emoji">🏗️</div>
+          <div class="listing-info">
+            <div class="listing-name">DHA Phase 8 — 5 Marla</div>
+            <div class="listing-price">PKR 1.3 Crore</div>
+            <div class="listing-tag">Plot</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="rp-section">
+        <div class="rp-title">📈 Market Pulse</div>
+        <div class="pulse-row">
+          <span class="pulse-label">DHA Lahore</span>
+          <span class="pulse-val up">↑ 12%</span>
+        </div>
+        <div class="pulse-row">
+          <span class="pulse-label">Bahria Town</span>
+          <span class="pulse-val up">↑ 8%</span>
+        </div>
+        <div class="pulse-row">
+          <span class="pulse-label">Gulberg</span>
+          <span class="pulse-val up">↑ 5%</span>
+        </div>
+        <div class="pulse-row">
+          <span class="pulse-label">Model Town</span>
+          <span class="pulse-val down">↓ 2%</span>
+        </div>
+      </div>
+
+      <div class="rp-section">
+        <div class="rp-title">⚡ Quick Actions</div>
+        <button class="rp-btn" onclick="chipSend({textContent:'Schedule a property site visit for me'})">📅 Book Site Visit</button>
+        <button class="rp-btn" onclick="chipSend({textContent:'Give me investment advice for a 50 lakh budget'})">💰 Investment Advice</button>
+        <button class="rp-btn" onclick="chipSend({textContent:'What documents are required to buy property in Pakistan?'})">📄 Required Documents</button>
+      </div>
+
+    </aside>
+
+  </div><!-- end .app -->
+
+  <script src="script.js"></script>
+</body>
+</html>
